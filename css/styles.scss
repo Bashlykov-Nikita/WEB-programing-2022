@@ -1,0 +1,536 @@
+// == Fonts ==
+//Roboto_Condensed
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+//Lobster
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+//== Mixin ==
+@mixin Roboto_Condensed{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+@mixin Lobster{
+    font-family: 'Lobster', cursive;
+}
+//== / Mixin ==
+
+//== Variables ==
+$breakpoint-sm-min: 576px;
+$breakpoint-xs-max: $breakpoint-sm-min - 1px;
+$breakpoint-md-min: 768px;
+$breakpoint-sm-max: $breakpoint-md-min - 1px;
+$breakpoint-lg-min: 992px;
+$breakpoint-md-max: $breakpoint-lg-min - 1px;
+$breakpoint-xl-min: 1200px;
+$breakpoint-lg-max: $breakpoint-xl-min - 1px;
+$breakpoint-xxl-min: 1400px;
+$breakpoint-xl-max: $breakpoint-xxl-min - 1px;
+
+
+$base: 4px;
+
+$fw-lite: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-bold: 700;
+
+$padding-vertical-xs: 10px; 
+$padding-vertical-s: 20px;
+$padding-vertical-m: 50px;
+
+$color-primary: #764AF1;
+$color-secondary: #9772FB;
+$color-light: #F2F2F2;
+$color-attention:#F32424;
+
+$transition: .2s;
+//== / Variables ==
+
+//==  Common ==
+body{
+    @include Roboto_Condensed;
+}
+.container{
+    border-bottom: 1px solid $color-light;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-top: $padding-vertical-m;
+    padding-bottom: $padding-vertical-m;
+    @media(max-width: $breakpoint-md-max){
+        padding-top: $padding-vertical-s;
+        padding-bottom: $padding-vertical-s;
+    }
+    @media(max-width: $breakpoint-sm-max){
+        padding-top: $padding-vertical-xs;
+        padding-bottom: $padding-vertical-xs;
+    }
+    &--bless{
+        border-bottom: none;
+    }
+    &--wide{
+        max-width: 1200px;
+    }
+    &--pv_s{
+        padding-top: $padding-vertical-s;
+        padding-bottom: $padding-vertical-s;
+        @media(max-width: $breakpoint-md-max){
+            padding-top: $padding-vertical-xs;
+            padding-bottom: $padding-vertical-xs;
+        }
+    }
+    &--ptop_none{
+        padding-top: 0 ;
+    }
+    &--device_width{
+        max-width:100%
+    }
+    &--wfs{
+        -webkit-font-smoothing: antialiased;
+    }
+
+
+}
+
+.btn{
+    @include Lobster;
+
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-weight: $fw-bold;
+    font-size: $base*5;
+    margin: 0;
+    padding: $base*2 $base*12;
+    background-color: none;
+    border: 0;
+    border-radius: 10rem;
+    text-decoration: none;
+    transition: $transition;
+    overflow: hidden;
+    z-index: 1;
+    &--primary{
+        background-color: none;
+        color: $color-attention;
+        border: none;
+        @media(max-width: $breakpoint-md-max){
+            display: none;
+        }
+    }
+}
+
+.hero-banner{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    //background-color: $color-primary;
+    &--work{
+        height: $base*100;
+        //TODO: REFACTORING
+        @media(max-width: 900px){
+            height: $base*85;
+        }
+        @media(max-width: $breakpoint-sm-max){
+            height: $base*75;
+        }
+        @media(max-width:680px){
+            height: $base*65;
+        }
+        @media(max-width: $breakpoint-xs-max){
+            height: $base*50;
+        }
+    }
+}
+//== / Common ==
+
+// == Header ==
+.header{
+    display: flex;
+    align-items: center;
+}
+// .header-wrapper{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+// }
+
+.size_of_logo{
+    width: $base*16;
+    height: $base*16;
+    @media(max-width: $breakpoint-sm-max){
+        width: $base*13;
+        height: $base*13;
+    }
+}
+.menu_header{
+    margin-left: $base*18;
+    @media(max-width: $breakpoint-md-max){
+        display: none;
+    }
+}
+.nav-wrapper{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display:flex;
+    
+    &--item{
+        & + &{
+            margin-left: $base*10;
+        }
+        &-link{
+            @include Lobster;
+            
+            font-size: $base*5;
+            font-weight: $fw-medium;
+            color: $color-primary;
+            text-decoration: none;
+            transition: $transition;
+
+            &:hover{
+                color: $color-attention;
+            }
+
+            &--active{
+                color: $color-attention;
+                font-weight: $fw-bold;
+            }
+        }
+    }
+    &-footer{
+        flex-direction: column;
+        &-item{
+                margin-bottom: $base*5;
+                @media(max-width:$breakpoint-sm-max){
+                    margin-bottom: $base*3;
+                }
+                @media(max-width:$breakpoint-xs-max){
+                    margin-bottom: $base*2;
+                }
+        }
+        &-link{
+            @include Lobster;
+            
+            font-size: $base*5;
+            font-weight: $fw-medium;
+            color: $color-primary;
+            text-decoration: none;
+            transition: $transition;
+
+            &:hover{
+                color: $color-attention;
+            }
+
+            &--active{
+                color: $color-attention;
+                font-weight: $fw-bold;
+            }
+        }
+    }
+
+
+}
+// == Burger ==
+.btn-burger{
+    display: none;
+    background-color: $color-light;
+    border-color: $color-primary;
+    border-radius: $base;
+    margin-left: auto;
+    position: relative;
+    padding: $base $base*2;
+
+    &__line{
+        display:block;
+        width: $base*3;
+        height: $base/2;
+        background-color: $color-primary;
+        margin-top: $base;
+        &-1{
+            display:block;
+            width: $base*3;
+            height: $base/2;
+            background-color: $color-primary;
+            margin-top: 0;
+        }
+    }
+
+    @media(max-width: $breakpoint-md-max){
+        display: inline-block;
+    }
+}
+
+// == Underline Animation
+.underline-animation{
+    position: relative;
+    display: inline-block;
+}
+.underline-animation:after{
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: $color-attention;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.underline-animation:hover::after{
+    width: 100%; 
+    left: 0; 
+}
+// == /Underline Animation
+
+// TODO: Social Animation
+.socials{
+    margin-left: auto;
+    &-footer{
+        margin: 0;
+        margin-bottom: $base*5; ;
+    }
+}
+.socials-wrapper{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display:flex;
+    
+    &--item{
+        & + &{
+            margin-left: $base*10;
+        }
+        &-link{
+            color: $color-primary;
+            transition: $transition;
+            
+            &:hover{
+                
+                color: $color-attention;
+            }
+        }
+    }
+}
+// == Button Animation
+.btn-wrapper{
+    margin-left: $base*11;
+    margin-right: $base*2;
+}
+.btn--primary:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: none;
+    border-radius: 10rem;
+    z-index: -2;
+}
+.btn--primary:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken($color-secondary, 15%);
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+}
+.btn--primary:hover {
+    color: #fff;
+    &:before {
+        width: 100%;
+    }
+}
+//== Button animation
+
+// == Works ==
+
+// == Breadcrumb ==
+//TODO: Breadcrumb hover animation
+ul.breadcrumb {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: $color-light;
+}
+
+  /* Display list items side by side */
+ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+}
+
+  /* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+  /* Add a color to all links inside the list */
+ul.breadcrumb li a {
+    color: $color-secondary;
+    text-decoration: none;
+}
+
+// == /Breadcrumb ==
+
+// == Cards ==
+.cards-wrapper{
+    display: flex;
+    display: grid;
+    grid-template-areas: 
+    "work_1 work_2 work_3 work_4";
+
+    @media(max-width: $breakpoint-sm-max){
+        grid-template-areas: 
+        "work_1 work_2"
+        "work_3 work_4";
+        justify-content: center;
+    }
+
+    grid-gap: $base*4;
+    justify-content:space-around;
+}
+.card{
+    height: $base*40;
+    min-width: $base*30;    
+    padding:30px;
+    background:white;
+    border:1px solid darken($color: $color-light, $amount: 15%);
+    box-shadow:2px 2px 5px 0px rgba(0,0,0,0.25);
+    border-radius:$base*2;
+    transition:.2s all; 
+}
+.work_1{
+    grid-area: work_1;
+}
+.work_2{
+    grid-area: work_2;
+}
+.work_3{
+    grid-area: work_3;
+}
+.work_4{
+    grid-area: work_4;
+}
+.cards-wrapper:hover .card{
+    filter:blur(3px);
+    opacity:.5;
+    transform: scale(.98);
+    box-shadow:none;
+}
+.cards-wrapper:hover .card:hover{
+    transform:scale(1);
+    filter:blur(0px);
+    opacity:1;
+    box-shadow:0 8px 20px 0px rgba(0,0,0,0.125);
+}
+
+// ==/Works ==
+
+// == Footer ==
+.footer{
+    display: flex;
+    border-top: 1px solid $color-light;
+}
+.left-side-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    width: 50%;
+    &--logo{
+        max-width: $base*45;
+    }
+    @media(max-width: $breakpoint-sm-max){
+        display:none;
+    }
+}
+.footer-nav{
+    width:25%;
+    display: flex;
+    align-items: center;
+    @media(max-width: $breakpoint-sm-max){
+        width: 50%;
+        justify-content: center;
+    }
+}
+.lets-talk{
+    //width: 25%;
+    display:flex;
+    align-items: center;
+    &-wrapper{
+        flex-direction: column;
+    }
+}
+.lets-chat{
+    margin: 0;
+    margin-bottom: $base*5;
+    @media(max-width:$breakpoint-sm-max){
+        margin-bottom: $base*3;
+    }
+    @media(max-width:$breakpoint-xs-max){
+        margin-bottom: $base*2;
+    }
+    @include Lobster;
+    font-size: $base*5;
+    font-weight: $fw-medium;
+    color: $color-attention;
+    letter-spacing: $base/2;
+}
+.mail_copy{
+    margin-bottom: $base*5;
+    @media(max-width:$breakpoint-sm-max){
+        margin-bottom: $base*3;
+    }
+    @media(max-width:$breakpoint-xs-max){
+        margin-bottom: $base*2;
+    }
+    background-color: $color-light;
+    font-size: $base*5;
+    border:none;
+    cursor: pointer;
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+// == / Footer ==
