@@ -113,7 +113,16 @@ function cos(){
         b = b.slice(0, 6)
     }else return;
 }
-
+function tan(){
+    document.querySelector('#main_screen').style.fontSize='2rem';
+    out.textContent = "not defined yet"
+}
+function ctan(){
+    document.querySelector('#main_screen').style.fontSize='2rem';
+    out.textContent = "not defined yet"
+}
+document.querySelector('.ctan').onclick = ctan;
+document.querySelector('.tan').onclick = tan;
 document.querySelector('.sin').onclick = sin;
 document.querySelector('.cos').onclick = cos;
 document.querySelector('.del').onclick = del;
@@ -131,6 +140,8 @@ document.querySelector('.buttons').onclick = (event) =>{
     if(event.target.classList.contains('plus-minus')) return;
     if(event.target.classList.contains('sin')) return;
     if(event.target.classList.contains('cos')) return;
+    if(event.target.classList.contains('tan')) return;
+    if(event.target.classList.contains('ctan')) return;
     out.textContent = '';
     // get pressed button
     const key = event.target.textContent;

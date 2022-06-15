@@ -5,7 +5,29 @@
     grey: #a6a6a6
     white: #fdfdfd
 */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+.get-back-btn{
+    font-family: 'Lobster', cursive;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 20px;
+    color: #764AF1;
+    padding: 8px 48px;
+    background-color: none;
+    border: #764AF1 solid 1px;
+    border-radius: 10rem;
+    text-decoration: none;
+    transition: .2s;
+    overflow: hidden;
+    z-index: 1;
+}
+a{
+    text-decoration: none;
+}
 .calc{
     margin: 5px auto;
     width: 300px;
